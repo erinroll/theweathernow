@@ -21,5 +21,4 @@ from weather import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('weather.urls')),
-    re_path(r'^get_weather_from_ip/', views.get_weather_from_ip, name='get_weather_from_ip'),
 ]

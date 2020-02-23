@@ -4,30 +4,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello Django</title>
+    <title>Weather Me</title>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-    <script>
-    function use_ip(json) {
-      $.ajax({
-        url: {% url 'get_weather_from_ip' %},
-        data: {"ip": json.ip},
-        dataType: 'json',
-        success: function (data) {
-          document.getElementById("weatherdata").innerHTML = data.weather_data
-        }
-      });
-    }
-      </script>
 
-    <script src="https://api.ipify.org?format=jsonp&callback=use_ip"></script>
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+
+    <!--responsive style sheets-->
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'desktop.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'tablet.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mobile.css' %}" rel="stylesheet" type="text/css">
+
 </head>
-<body>
-    {% block content %}{% endblock content %}
+<body style="background-color:{{color}};" >
+    {% block content %}
+<div>  </div>
+    {% endblock content %}
 </body>
 </html>

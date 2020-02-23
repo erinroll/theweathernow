@@ -1,6 +1,42 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block content %}
-  <h1>Weather</h1>
-  <p id=weatherdata></p>
+  <div class="headline" style="color:{{color}};">Weather me, right now</div>
+  <div class="main">
+  <div class="weather_details">
+  <div class="city">{{weather.city}}</div>
+
+  <div class="weather_main">{{weather.main}}</div>
+  <div class="weather_description">you can expect {{weather.description}}</div>
+
+  <div class="weather_temp"> {{weather.temperature}}&#176</div>
+  <div class="weather_humidity">{{weather.humidity}}% HUMIDITY</div>
+  </div>
+
+  <div class="weather_image"><img src="{% static 'media/'%}{{image_id}}.png" alt="" style="height:100%"></div>
+  </div>
+
+
+  <div class="bottombar">
+  <div class = "weather_mintemp">
+    <strong>MIN TEMP</strong> <br>
+    <hr>
+    <div class ="text">{{weather.tempmin}}&#176</div>
+  </div>
+  <div class = "weather_feelslike">
+    <strong>FEELS LIKE</strong> <br>
+    <hr>
+  <div class ="text">{{weather.feelslike}}&#176</div>
+  </div>
+  <div class = "weather_maxtemp">
+    <strong>MAX TEMP</strong><br>
+    <hr>
+    <div class ="text">{{weather.tempmax}}&#176</div>
+  </div>
+  </div>
+
+
+
+
 {% endblock content %}
